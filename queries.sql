@@ -87,6 +87,10 @@ WHERE weight_kg  < 0;
 
 COMMIT;
 
+/* 3-1-How many animals are there?  */
+
+SELECT COUNT(*) FROM animals;
+
 
 
 
