@@ -36,6 +36,8 @@ SELECT * FROM animals;
 
 ROLLBACK;
 
+SELECT * FROM animals;
+
 /* Change the species from animals ended in mon with commit */
 
 BEGIN;
@@ -78,8 +80,9 @@ SAVEPOINT SP1;
 
 UPDATE animals
 SET weight_kg = weight_kg * -1;
-
+SELECT * FROM animals;
 ROLLBACK TO SP1
+SELECT * FROM animals;
 
 UPDATE animals
 SET weight_kg = weight_kg * -1
@@ -87,6 +90,7 @@ WHERE weight_kg  < 0;
 
 COMMIT;
 
+SELECT * FROM animals;
 /* 3-1-How many animals are there?  */
 
 SELECT COUNT(*) FROM animals;
