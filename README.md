@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <img src="./images/vet-clinic.png" alt="logo" width="70%"  height="auto" />
+  <img src="./images/vet-clinic.PNG" alt="logo" width="70%"  height="auto" />
   <br/>
 
   <h3><b>Vet-Clinic-imvh</b></h3>
