@@ -43,8 +43,6 @@
 
 Apart from building data structure, you will be challenged with tasks that require SQL queries to answer specific questions.
 
-**[Vet-Clinic-imvh]** is a...
-
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
