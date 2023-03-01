@@ -74,7 +74,7 @@ We will be building our "Vet clinic" database during all the project. Here is th
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link- Soon]()
+- [Live Demo Link- Soon](#)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
