@@ -22,14 +22,11 @@
   - [Prerequisites](#prerequisites)
   - [Install](#install)
   - [Usage](#usage)
-  - [Run tests](#run-tests)
-  - [Deployment](#triangular_flag_on_post-deployment)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
 
@@ -108,6 +105,7 @@ You only need to install Postgres and have a text editor.
 
 ### Usage
 
+You can run the sql command with PGAdmin program or in the console with psql.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -125,7 +123,6 @@ You only need to install Postgres and have a text editor.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
 
@@ -137,7 +134,6 @@ You only need to install Postgres and have a text editor.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- CONTRIBUTING -->
 
 ## 🤝 Contributing <a name="contributing"></a>
 
@@ -147,7 +143,6 @@ Feel free to check the [issues page](https://github.com/ivanmvh/databases-ivanmv
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
