@@ -100,7 +100,11 @@ WHERE escape_attempts = 0;
 
 SELECT AVG(weight_kg) FROM animals;
 
+/* Who escapes the most, neutered or not neutered animals? */
 
+SELECT neutered, SUM(escape_attempts)
+FROM animals
+GROUP BY neutered;
 
 
 
