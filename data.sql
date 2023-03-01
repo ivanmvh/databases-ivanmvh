@@ -8,3 +8,9 @@ UNION
 SELECT 'Pikachu', '2021-01-07', 1, false, 15.04
 UNION
 SELECT 'Devimon', '2017-05-12', 5, true, 11;
+
+/* Add a column species of type string to your animals table. Modify your schema.sql file. */
+BEGIN;
+ALTER TABLE animals
+ADD COLUMN species VARCHAR(200);
+COMMIT;
