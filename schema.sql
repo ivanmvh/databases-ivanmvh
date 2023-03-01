@@ -21,3 +21,9 @@ TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.animals
     OWNER to postgres;
+
+/* Add a column species of type string to your animals table. Modify your schema.sql file. */
+BEGIN;
+ALTER TABLE animals
+ADD COLUMN species VARCHAR(200);
+COMMIT;
