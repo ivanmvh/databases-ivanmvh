@@ -20,3 +20,17 @@ VALUES ('Charmander', '2020-02-08', 0, false, -11),
        ('Ditto', '2022-05-14', 4, true, 22);
 
 COMMIT;
+
+/* Insert data in the owners table */
+
+BEGIN;
+
+INSERT INTO owners(full_name, age)
+VALUES ('Sam Smith', 34),
+       ('Jennifer Orwell', 19),
+       ('Bob', 45),
+       ('Melody Pond', 77),
+       ('Dean Winchester', 14),
+       ('Jodie Whittaker', 38);
+
+COMMIT;
