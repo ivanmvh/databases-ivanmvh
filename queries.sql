@@ -155,3 +155,18 @@ JOIN species s
 ON a.species_id = s.id
 GROUP BY s.name;
 
+/* List all Digimon owned by Jennifer Orwell. (without JOIN) */
+SELECT o.full_name as owner_name, s.name as specie_name, a.name
+FROM owners o, animals a , species s
+where a.owner_id = o.id and o.full_name = 'Jennifer Orwell' 
+  and a.species_id = s.id and s.name = 'Digimon'
+
+/* List all Digimon owned by Jennifer Orwell. (with JOIN) */
+
+SELECT o.full_name as owner_name, s.name as specie_name, a.name as animal_name
+FROM animals a
+JOIN species s
+ON a.species_id = s.id
+JOIN owners o
+ON a.owner_id = o.id
+WHERE o.full_name = 'Jennifer Orwell' AND s.name ='Digimon';

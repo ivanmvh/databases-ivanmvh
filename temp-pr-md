@@ -26,6 +26,7 @@ In this project we will add some new tables and add foreign key columns to our e
   - Remove column `species`
   - Add column `species_id` which is a foreign key referencing `species` table
   - Add column `owner_id` which is a foreign key referencing the `owners` table
+
 - Remember all this goes in `schema.sql` file.
 
 - Insert the following data into the `owners` table:
