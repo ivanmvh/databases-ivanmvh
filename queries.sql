@@ -187,3 +187,9 @@ ON a.owner_id = o.id
 GROUP BY 1
 ORDER BY 2 DESC
 LIMIT 1;
+
+/* Raw data view used in queries */
+SELECT a.name as animal, s.name as specie, o.full_name as owner, a.escape_attempts FROM animals a
+join species s ON s.id = a.species_id
+RIGHT join owners o ON o.id = a.owner_id
+
