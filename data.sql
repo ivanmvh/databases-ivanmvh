@@ -34,3 +34,14 @@ VALUES ('Sam Smith', 34),
        ('Jodie Whittaker', 38);
 
 COMMIT;
+
+/* Insert data in species table */
+
+BEGIN;
+
+INSERT INTO species(name)
+VALUES ('Pokemon'),
+       ('Digimon');
+
+COMMIT;
+
