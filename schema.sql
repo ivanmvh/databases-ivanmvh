@@ -49,3 +49,41 @@ CREATE TABLE species(
     PRIMARY KEY(id)
 );
 COMMIT
+
+/* Remove column species in animals */
+
+BEGIN;
+
+ALTER TABLE animals
+DROP COLUMN species;
+
+COMMIT;
+
+
+/* Add column species_id in animals which is a foreign key referencing species table */
+
+BEGIN;
+
+ALTER TABLE animals
+ADD COLUMN species_id INT;
+
+ALTER TABLE animals
+ADD CONSTRAINT fk_species_id
+FOREIGN KEY (species_id) 
+REFERENCES species(id);
+
+COMMIT;
+
+/* Add column owner_id in animals which is a foreign key referencing the owners table */
+
+BEGIN;
+
+ALTER TABLE animals
+ADD COLUMN owner_id INT;
+
+ALTER TABLE animals
+ADD CONSTRAINT dk_owner_id
+FOREIGN KEY(owner_id)
+REFERENCES owners(id);
+
+COMMIT;
