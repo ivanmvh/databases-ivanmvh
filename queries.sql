@@ -122,3 +122,74 @@ SELECT species, AVG(escape_attempts)
 FROM animals
 WHERE date_of_birth BETWEEN '1990-01-01' AND '2000-12-31'
 GROUP BY species;
+
+/* What animals belong to Melody Pond?*/
+
+SELECT a.name as animal, o.full_name as owner
+FROM animals a
+JOIN owners o
+ON a.owner_id = o.id
+WHERE o.full_name = 'Melody Pond';
+
+/*  List of all animals that are pokemon (their type is Pokemon). */
+
+SELECT a.name as animal_name, s.name as type_animal
+FROM animals a
+JOIN species s
+ON a.species_id = s.id
+WHERE s.name = 'Pokemon';
+
+/* List all owners and their animals, remember to include those that don't own any animal */
+
+SELECT o.full_name as owner_name, a.name as animal_name
+FROM owners o
+LEFT JOIN animals a
+ON o.id = a.owner_id
+order by o.full_name;
+
+/* How many animals are there per species? */
+
+SELECT s.name AS specie_name, COUNT(*) AS total_animals
+FROM animals a
+JOIN species s
+ON a.species_id = s.id
+GROUP BY s.name;
+
+/* List all Digimon owned by Jennifer Orwell. (without JOIN) */
+SELECT o.full_name as owner_name, s.name as specie_name, a.name
+FROM owners o, animals a , species s
+where a.owner_id = o.id and o.full_name = 'Jennifer Orwell' 
+  and a.species_id = s.id and s.name = 'Digimon'
+
+/* List all Digimon owned by Jennifer Orwell. (with JOIN) */
+
+SELECT o.full_name as owner_name, s.name as specie_name, a.name as animal_name
+FROM animals a
+JOIN species s
+ON a.species_id = s.id
+JOIN owners o
+ON a.owner_id = o.id
+WHERE o.full_name = 'Jennifer Orwell' AND s.name ='Digimon';
+
+/* List all animals owned by Dean Winchester that haven't tried to escape.*/
+SELECT o.full_name as owner_name, a.name as animal_name, a.escape_attempts
+FROM animals a
+JOIN owners o
+ON a.owner_id = o.id
+WHERE o.full_name = 'Dean Winchester' AND a.escape_attempts = 0;
+
+/* Who owns the most animals? */
+
+SELECT o.full_name as owner_name, COUNT(*) AS number_of_animals
+FROM owners o
+JOIN animals a
+ON a.owner_id = o.id
+GROUP BY 1
+ORDER BY 2 DESC
+LIMIT 1;
+
+/* Raw data view used in queries */
+SELECT a.name as animal, s.name as specie, o.full_name as owner, a.escape_attempts FROM animals a
+join species s ON s.id = a.species_id
+RIGHT join owners o ON o.id = a.owner_id
+
