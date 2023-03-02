@@ -87,3 +87,11 @@ FOREIGN KEY(owner_id)
 REFERENCES owners(id);
 
 COMMIT;
+
+/* Add PRIMARY KEY to animals table */
+BEGIN;
+
+ALTER TABLE animals
+ADD PRIMARY KEY(id);
+
+COMMIT;
