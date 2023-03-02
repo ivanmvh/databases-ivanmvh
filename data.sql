@@ -63,3 +63,13 @@ COMMIT;
 /* check Modify owner informatiom @im */
 select a."name", a.owner_id,o.full_name from animals a, owners o where a.owner_id = o.id order by a.owner_id
 
+/* Modify your inserted animals so it includes the species_id value: */
+
+UPDATE animals
+SET species_id =
+    CASE
+    WHEN name LIKE '%mon' THEN 2
+    ELSE 1
+    END;
+
+select * from animals;  
