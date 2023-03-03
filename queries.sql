@@ -193,3 +193,17 @@ SELECT a.name as animal, s.name as specie, o.full_name as owner, a.escape_attemp
 join species s ON s.id = a.species_id
 RIGHT join owners o ON o.id = a.owner_id
 
+/* Vet clinic database: add "join table" for visits */
+
+/* Who was the last animal seen by William Tatcher? */
+
+SELECT a.name as animal, v.name as vet_name, d.date_of_visits as last_date
+FROM animals a
+JOIN visits d
+ON a.id = d.animal_id
+JOIN vets v
+ON v.id = d.vet_id
+WHERE v.name = 'William Tatcher'
+ORDER BY d.date_of_visits DESC
+LIMIT 1;
+

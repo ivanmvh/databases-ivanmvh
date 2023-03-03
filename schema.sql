@@ -96,6 +96,9 @@ ADD PRIMARY KEY(id);
 
 COMMIT;
 
+
+/* Vet clinic database: add "join table" for visits */
+
 /* Create a table named vets with the following columns: */
 
 CREATE TABLE vets(
