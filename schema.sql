@@ -95,3 +95,14 @@ ALTER TABLE animals
 ADD PRIMARY KEY(id);
 
 COMMIT;
+
+/* Create a table named vets with the following columns: */
+
+CREATE TABLE vets(
+  id INT GENERATED ALWAYS AS IDENTITY,
+  name VARCHAR(200),
+  age INT,
+  date_of_graduation DATE,
+  PRIMARY KEY(id)
+);
+
