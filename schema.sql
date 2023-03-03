@@ -126,6 +126,14 @@ CREATE TABLE visits(
   animal_id INTEGER REFERENCES animals(id),
   vet_id INTEGER REFERENCES vets(id),
   date_of_visits DATE,
-  PRIMARY KEY(animal_id, vet_id)
+  PRIMARY KEY(animal_id, vet_id, date_of_visits)
 );
+
+/*
+CREATE TABLE visits(
+  animal_id INTEGER REFERENCES animals(id),
+  vet_id INTEGER REFERENCES vets(id),
+  date_of_visits DATE
+);
+*/
 
