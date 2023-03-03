@@ -227,7 +227,7 @@ ON v.id = s.vet_id
 LEFT JOIN species sp
 ON sp.id = s.species_id;
 
-/*List all animals that visited Stephanie Mendez between April 1st and August 30th, 2020.*/
+/* List all animals that visited Stephanie Mendez between April 1st and August 30th, 2020. */
 
 SELECT a.name animal, v.name as vet_name, d.date_of_visits
 FROM vets v
@@ -237,4 +237,14 @@ JOIN animals a
 ON a.id = d.animal_id
 WHERE d.date_of_visits BETWEEN '2020-04-01' AND '2020-08-30'
 AND v.name = 'Stephanie Mendez';
+
+/* What animal has the most visits to vets? */
+
+SELECT a.id as animal_id, a.name as animal_name, COUNT(*) AS number_of_visits
+FROM animals a
+JOIN visits vi
+ON vi.animal_id = a.id
+GROUP BY a.id, a.name
+ORDER BY 3 DESC
+LIMIT 1;
 
