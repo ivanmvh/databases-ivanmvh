@@ -106,3 +106,26 @@ CREATE TABLE vets(
   PRIMARY KEY(id)
 );
 
+/* specializations - Join Table between species and vets 
+There is a many-to-many relationship between the tables species and vets: 
+a vet can specialize in multiple species, and a species can have multiple vets specialized in it.
+Create a "join table" called specializations to handle this relationship. */
+
+CREATE TABLE specializations(
+  vet_id INTEGER REFERENCES vets(id) ,
+  species_id INTEGER REFERENCES species(id),
+  PRIMARY KEY(vet_id, species_id)
+);
+
+/* visits - Join Table between animals and vets
+There is a many-to-many relationship between the tables animals and vets:
+an animal can visit multiple vets and one vet can be visited by multiple animals.
+Create a "join table" called visits to handle this relationship, it should also keep track of the date of the visit. */
+
+CREATE TABLE visits(
+  animal_id INTEGER REFERENCES animals(id),
+  vet_id INTEGER REFERENCES vets(id),
+  date_of_visits DATE,
+  PRIMARY KEY(animal_id, vet_id)
+);
+
