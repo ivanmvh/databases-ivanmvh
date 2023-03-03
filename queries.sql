@@ -206,3 +206,14 @@ ON ve.id = vi.vet_id
 WHERE ve.name = 'William Tatcher'
 ORDER BY vi.date_of_visits DESC
 LIMIT 1;
+
+/* How many different animals did Stephanie Mendez see? */
+
+SELECT ve.name as vet_name, COUNT(a.id) AS animals_seen
+FROM animals a
+JOIN visits vi
+ON a.id = vi.animal_id
+JOIN vets ve
+ON ve.id = vi.vet_id
+GROUP BY ve.name
+HAVING ve.name = 'Stephanie Mendez';
