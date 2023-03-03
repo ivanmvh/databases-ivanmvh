@@ -197,13 +197,12 @@ RIGHT join owners o ON o.id = a.owner_id
 
 /* Who was the last animal seen by William Tatcher? */
 
-SELECT a.name as animal, v.name as vet_name, d.date_of_visits as last_date
+SELECT a.name as last_animal_view, ve.name as by_vet_name, vi.date_of_visits as on_date
 FROM animals a
-JOIN visits d
-ON a.id = d.animal_id
-JOIN vets v
-ON v.id = d.vet_id
-WHERE v.name = 'William Tatcher'
-ORDER BY d.date_of_visits DESC
+JOIN visits vi
+ON a.id = vi.animal_id
+JOIN vets ve
+ON ve.id = vi.vet_id
+WHERE ve.name = 'William Tatcher'
+ORDER BY vi.date_of_visits DESC
 LIMIT 1;
-
