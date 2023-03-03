@@ -217,3 +217,12 @@ JOIN vets ve
 ON ve.id = vi.vet_id
 GROUP BY ve.name
 HAVING ve.name = 'Stephanie Mendez';
+
+/* List all vets and their specialties, including vets with no specialties. */
+
+SELECT v.id as vet_id, v.name as vet_name , sp.name AS specialization
+FROM vets v
+LEFT JOIN specializations s
+ON v.id = s.vet_id
+LEFT JOIN species sp
+ON sp.id = s.species_id;
