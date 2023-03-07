@@ -94,7 +94,7 @@ VALUES
         (4, 2);
 
 /* Insert the following data for visits */
-INSERT INTO visit(animal_id, vet_id, date_of_visits)
+INSERT INTO visit(animal_id, vet_id, date_of_visit)
 VALUES
     (1, 1, '2020-05-24'),
     (1, 3, '2020-07-22'),
@@ -116,3 +116,14 @@ VALUES
     (9, 2, '2020-08-03'),
     (10, 3, '2020-05-24'),
     (10, 1, '2021-01-11');
+
+/* Vet clinic database: database performance audit */   
+
+DELETE visits
+
+/*-- This will add 3.594.280 visits considering you have 10 animals, 4 vets, and it will use around ~87.000 timestamps. */
+/* I needed 28MM registers to reach 1000 ms without index - I run the next command 8 times. It depens of your computer. */
+INSERT INTO visits (animal_id, vet_id, date_of_visit) SELECT * FROM (SELECT id FROM animals) animal_ids, (SELECT id FROM vets) vets_ids, generate_series('1980-01-01'::timestamp, '2021-01-01', '4 hours') visit_timestamp;
+
+/* -- This will add 2.500.000 owners with full_name = 'Owner <X>' and email = 'owner_<X>@email.com'. */
+insert into owners (full_name, email) select 'Owner ' || generate_series(1,2500000), 'owner_' || generate_series(1,2500000) || '@mail.com';
