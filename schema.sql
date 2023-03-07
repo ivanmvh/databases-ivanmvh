@@ -125,18 +125,27 @@ There is a many-to-many relationship between the tables animals and vets:
 an animal can visit multiple vets and one vet can be visited by multiple animals.
 Create a "join table" called visits to handle this relationship, it should also keep track of the date of the visit. */
 
-CREATE TABLE visits(
-  animal_id INTEGER REFERENCES animals(id),
-  vet_id INTEGER REFERENCES vets(id),
-  date_of_visits DATE,
-  PRIMARY KEY(animal_id, vet_id, date_of_visits)
-);
-
 /*
 CREATE TABLE visits(
   animal_id INTEGER REFERENCES animals(id),
   vet_id INTEGER REFERENCES vets(id),
-  date_of_visits DATE
+  date_of_visit DATE,
+  PRIMARY KEY(animal_id, vet_id, date_of_visit)
 );
 */
 
+CREATE TABLE visits(
+  animal_id INTEGER REFERENCES animals(id),
+  vet_id INTEGER REFERENCES vets(id),
+  date_of_visit DATE
+);
+
+/* Vet clinic database: database performance audit */   
+
+/* -- Add an email column to your owners table */
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+/* Index to improve searching times */
+CREATE INDEX animal_visits ON visits(animal_id ASC);
+CREATE INDEX vet_visits ON visits(vet_id ASC);
+CREATE INDEX email_owners ON owners(email ASC);
